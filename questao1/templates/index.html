@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tarefas - App Educacional Redis</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon.png') }}">
+    
+    <!-- Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- SortableJS para drag and drop -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"></script>
+    
+    <!-- CSS personalizado -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- Container de notificações toast -->
+    <div class="toast-container" id="toastContainer"></div>
+    
+    <!-- Loading overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="spinner">
+            <i class="fas fa-spinner fa-spin"></i>
+        </div>
+    </div>
+    
+    <!-- Container principal -->
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="header-left">
+                    <h1 class="app-title">
+                        <i class="fas fa-tasks"></i>
+                        Lista de Tarefas
+                    </h1>
+                    <p class="app-subtitle">App Educacional - Redis</p>
+                </div>
+                <div class="header-right">
+                    <div class="pending-count" id="pendingCount">
+                        <span class="count-number">0</span>
+                        <span class="count-label">pendentes</span>
+                    </div>
+                    <button class="theme-toggle" id="themeToggle" title="Alternar tema">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+        
+        <!-- Formulário para adicionar tarefa -->
+        <form class="add-task-form" id="addTaskForm">
+            <div class="input-group">
+                <input 
+                    type="text" 
+                    id="taskInput" 
+                    placeholder="Digite uma nova tarefa..."
+                    maxlength="200"
+                    required
+                >
+                <button type="submit" class="add-button">
+                    <i class="fas fa-plus"></i>
+                    <span>Adicionar</span>
+                </button>
+            </div>
+        </form>
+        
+        <!-- Lista de tarefas -->
+        <div class="tasks-section">
+            <div class="tasks-header">
+                <h2>Suas Tarefas</h2>
+                <div class="tasks-info">
+                    <i class="fas fa-info-circle"></i>
+                    <span>Arraste para reordenar</span>
+                </div>
+            </div>
+            
+            <div class="tasks-container">
+                <ul class="tasks-list" id="tasksList">
+                    <!-- Tarefas serão adicionadas dinamicamente -->
+                </ul>
+                
+                <div class="empty-state" id="emptyState">
+                    <i class="fas fa-clipboard-list"></i>
+                    <h3>Nenhuma tarefa ainda</h3>
+                    <p>Adicione sua primeira tarefa acima!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal de confirmação -->
+    <div class="modal-overlay" id="confirmModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Confirmar Exclusão</h3>
+                <button class="modal-close" id="modalClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Tem certeza que deseja remover esta tarefa?</p>
+                <p class="modal-task-text" id="modalTaskText"></p>
+            </div>
+            <div class="modal-actions">
+                <button class="btn btn-secondary" id="modalCancel">Cancelar</button>
+                <button class="btn btn-danger" id="modalConfirm">Remover</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- JavaScript personalizado -->
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

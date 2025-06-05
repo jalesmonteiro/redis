@@ -1,0 +1,14 @@
+# Ambientes virtuais
+.venv/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Configurações
+.env
+config.py
+
+# Cache e arquivos temporários
+__pycache__/
