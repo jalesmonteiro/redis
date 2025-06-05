@@ -1,10 +1,11 @@
 # Lista de Tarefas - App Educacional Redis
 
-Este é um aplicativo educacional de lista de tarefas desenvolvido para a disciplina de Bancos de Dados, com foco no aprendizado de Redis.
+Este é um aplicativo educacional de lista de tarefas desenvolvido para a disciplina de Bancos de Dados 2, com foco no aprendizado de Redis.
 
 ## 🎯 Objetivo
 
-O aplicativo foi criado para que alunos pratiquem a integração com Redis. Inicialmente, o professor fornecerá o app com conexão ao Redis já implementada. Posteriormente, a integração será removida para que os alunos implementem as operações de banco de dados.
+O aplicativo foi criado para que alunos pratiquem a integração com Redis.
+A interface da aplicação está pronta faltando apenas a integração para que os alunos implementem as operações de banco de dados.
 
 ## ✨ Funcionalidades
 
@@ -47,7 +48,7 @@ redis_client = redis.Redis(
 python app.py
 ```
 
-O aplicativo estará disponível em `http://localhost:5000`
+O aplicativo estará disponível em `http://localhost:5001`
 
 ## 🛠️ Tecnologias Utilizadas
 
@@ -163,7 +164,7 @@ setTimeout(() => this.hideToast(toast), 5000);
 
 ## 📝 Licença
 
-Este projeto é para fins educacionais. Desenvolvido para a disciplina de Bancos de Dados.
+Este projeto é para fins educacionais. Desenvolvido para a disciplina de Bancos de Dados 2.
 
 ---
 
