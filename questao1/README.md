@@ -35,9 +35,9 @@ Configure a conexão Redis no arquivo `app.py`:
 redis_client = redis.Redis(
     host='seu-host-redis',
     port=6379,
-    password='sua-senha',  # se necessário
-    db=0,
-    decode_responses=True
+    decode_responses=True,
+    username='default',
+    password='sua-senha'
 )
 ```
 
