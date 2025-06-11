@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 import json
 import redis
 import uuid
+import os
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your-secret-key-here-56549819'
