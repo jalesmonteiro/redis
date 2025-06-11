@@ -1,23 +1,23 @@
 from flask import Flask, render_template, request, jsonify
-# import redis  # ALUNOS: Descomente esta linha e configure a conexão
-import json
-import uuid
 from datetime import datetime
+from dotenv import load_dotenv
+import json
+import redis
+import uuid
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'your-secret-key-here'
+app.config['SECRET_KEY'] = 'your-secret-key-here-56549819'
 
-# CONFIGURAÇÃO REDIS - PARA SER IMPLEMENTADA PELOS ALUNOS
-# redis_client = redis.Redis(
-#     host='localhost',       # Substitua pelo host do seu Redis
-#     port=6379,              # Substitua pela porta do seu Redis
-#     decode_responses=True,  # Para decodificar respostas como strings
-#     username='default',     # Substitua pelo usuario fornecido pelo Redis
-#     password='sua_senha',   # Substitua pela senha do banco do seu Redis
-# )
+# Carrega as variáveis do arquivo .env
+load_dotenv()
 
-# ALUNOS: Implementem esta função para conectar ao Redis
-redis_client = None  # Substitua pela configuração real do Redis
+redis_client = redis.Redis(
+    host= os.getenv('REDIS_HOST'),
+    port= int(os.getenv('REDIS_PORT')),
+    username= os.getenv('REDIS_USERNAME'),
+    password= os.getenv('REDIS_PASSWORD'),
+    decode_responses= True,
+)
 
 TASKS_KEY = "todo_tasks"
 
